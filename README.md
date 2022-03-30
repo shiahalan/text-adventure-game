@@ -5,4 +5,3 @@ Simply execute the script and type in the answer corresponding to the choice you
 Some minigames appear which may end up penalizing or awarding you.
 """
 
-DD
