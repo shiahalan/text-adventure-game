@@ -1,4 +1,4 @@
-# text-adventure-game
+# Text Adventure Game
 
 ## Description
 A game where the player is given decisions that will affect the outcome of their story. 
