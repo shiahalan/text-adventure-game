@@ -298,7 +298,7 @@ def games(game):
                 bot_c = 'rock'
             elif bot == 2:
                 bot_c = 'paper'
-            else:
+            elif bot == 3:
                 bot_c = 'scissors'
 
             choice = input("Choose:\n[1]Rock\n[2]Paper\n[3]Scissors\n>")
@@ -307,7 +307,6 @@ def games(game):
             else:
                 user = 10
 
-            user_c = ''
             if user == 1:
                 user_c = 'ROCK!'
             elif user == 2:
@@ -320,7 +319,7 @@ def games(game):
             print("ROCK, PAPER, SCISSORS, SHOOT!")
             if user == bot:
                 waiting()
-                print(f"{name} chose ROCK!")
+                print(f"{name} chose {user_c}!")
                 waiting()
                 print(f"Opponent: {bot_c}")
                 sleep(0.5)
@@ -372,9 +371,9 @@ def games(game):
             print(f"{name} is saddened by his loss, but is content with the results.")
 
     elif game == 'minefield':
-        print("MINEFIELD! You have twenty-four rocks to throw into the field... If a rock happens to hit a mine, GAME OVER!")
+        print("MINEFIELD! You have twenty-four rocks to throw into the field... If a rock happens to hit a mine, it'll hurt!")
         board = [['□'] * 5 for i in range(5)]
-        rocks = 25
+        rocks = 24
         while rocks > 0:
             for row in board:
                 print("  ".join(row))
@@ -447,13 +446,13 @@ def games(game):
             """)
         # with open("letter1529.txt", "r") as f:
         #     print(f.read())
-        with open("letter1529.txt", "r") as f:
-            print("*Look at your files for letter1529.txt*")
         solved = False
-        waiting()
         print("A transparent wavering wall suddenly blocks off the exit to the cave.")
         waiting()
         print("I'M TRAPPED!")
+        waiting()
+        with open("letter1529.txt", "r") as f:
+            print("*Look at your files for letter1529.txt*")
         waiting()
         print(f"Anxious, {name} refers back to the letter he found.")
         tries = 5
@@ -632,9 +631,6 @@ def games(game):
     elif game == 'unknown':
         pass
 
-
-
-
 def act_one():
     sleep(2)
     print("Aargh, what happened..?")
@@ -809,7 +805,7 @@ def act_two():
             response = True
             sleep(1)
             print(f"{name}'s curiosity fades so he continues to wander aimlessly...")
-        elif choice.lower == 'inventory':
+        elif choice.lower() == 'inventory':
             use_backpack()
         else:
             print("Invalid option...")
