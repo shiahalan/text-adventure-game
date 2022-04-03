@@ -76,6 +76,7 @@ def death(cause):
     if cause == '1':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
             You pretty much died of laziness in bed...                                 
         """)
@@ -84,6 +85,7 @@ def death(cause):
     elif cause == '2':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
             Died of cowardice.. Maybe cross the river next time.
         """)
@@ -92,6 +94,7 @@ def death(cause):
     elif cause == '3':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
         Wow, you died to a mushroom...
         """)
@@ -100,6 +103,7 @@ def death(cause):
     elif cause == '4':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
         Died from an explosion huh... Not too shabby!
         """)
@@ -108,6 +112,7 @@ def death(cause):
     elif cause == '5':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
         A real shame that was...
         """)
@@ -116,6 +121,7 @@ def death(cause):
     elif cause == '6':
         health = 100
         money = 0
+        backpack.inventory = ['note']
         print("""
         There was still much for you to enjoy in life...
         """)
@@ -536,13 +542,13 @@ def games(game):
                     print("Boss: GRRR!")
                     sleep(0.5)
                     print("Boss: *swords sword*")
-                    boss_dmg = r.randint(5,10)
+                    boss_dmg = r.randint(5, 10)
                     sleep(0.25)
                     update_health_money(-boss_dmg, 0)
                     print(f"{name} took {boss_dmg} damage...")
                 elif action.lower() == 'b':
                     sleep(0.5)
-                    dmg = r.randint(1, 10)
+                    dmg = r.randint(1, 15)
                     boss_hp -= dmg
                     print(f"{name} fires an arrow for {dmg} damage!")
                     sleep(1)
@@ -574,11 +580,13 @@ def games(game):
                         print("Boss: Ha Ha Ha! That won't work!")
                         sleep(0.5)
                         boss_attack = r.randint(1, 15)
+                        print(f"{name} took {boss_attack} damage!")
                         update_health_money(-boss_attack, 0)
                 elif action.lower() == 'd':
                     sleep(1)
                     print("Boss: Scurry back into line...")
                     sleep(0.5)
+                    loadingbar()
                     act_four()
                 elif action.lower() == 'inventory':
                     if 'health potion' in backpack.inventory:
@@ -892,7 +900,7 @@ def act_three():
                 waiting()
                 print("Homeless man: I shall grant you this in exchange...")
                 waiting()
-                print("The homeless man passes to you a bottle, filled with red liquid")
+                print("The homeless man passes to you a bottle, filled with red liquid.")
                 waiting()
                 print("Homeless man: Put it to good use...")
                 backpack.add_item('health potion')
@@ -1020,6 +1028,7 @@ def act_four():
     waiting()
     if money <= 0:
         print(f"Weakened by his budget, {name} is forced to return home to retrieve money.")
+        loadingbar()
         act_two()
     print("END OF ACT FOUR\nCheckpoint Four Password: thebigbadbar")
     waiting()
@@ -1048,7 +1057,7 @@ def act_five():
                 sleep(1.5)
                 if money >= 100:
                     bought = True
-                    update_health_money(0,-100)
+                    update_health_money(0, -100)
                     sleep(1.5)
                     backpack.add_item('sword')
                     print("The sword lifts itself off the rock and disappears...")
@@ -1094,7 +1103,7 @@ def act_five():
     waiting()
     print("*door opens*")
     waiting()
-    print(f"{name} enters building...")
+    print(f"*{name} enters building*")
     waiting()
     print("*door closes*")
     waiting()
